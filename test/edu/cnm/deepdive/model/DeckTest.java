@@ -33,6 +33,7 @@ class DeckTest {
     assertEquals(52, count);
   }
 
+
   @Test
   void shuffle() {
     List<Card> originalList = new LinkedList<>();
