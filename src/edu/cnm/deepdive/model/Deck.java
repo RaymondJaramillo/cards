@@ -2,17 +2,19 @@ package edu.cnm.deepdive.model;
 
 import java.security.SecureRandom;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Random;
 
+/**
+ * Encapsulates amount of cards by counting the amount of cards in a {@link Deck} and the amount of cards that have been dealt.
+ */
 public class Deck {
 
   private List<Card> cards;
   private List<Card> dealt;
+
 
   public Deck() {
     cards = new ArrayList<>();
@@ -49,13 +51,6 @@ public class Deck {
   public String toString() {
     return cards.toString();
   }
-
-  public static void main(String[] args) {
-    Deck deck = new Deck();
-    System.out.println(deck);
-    deck.shuffle(new SecureRandom());
-    System.out.println(deck);
-  }
-
 }
+
 
