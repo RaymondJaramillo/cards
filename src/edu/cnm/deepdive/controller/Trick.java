@@ -8,6 +8,10 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Random;
 
+/**
+ * Encapsulates a {@link Random} card from {@link Deck} and place a card into either {@link List}
+ * redPile or blackPile based on what color the {@link Random} card is.
+ */
 public class Trick {
 
   private Deck deck;
