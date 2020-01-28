@@ -19,6 +19,10 @@ public class Trick {
   private List<Card> blackPile;
   private Random rng = new SecureRandom();
 
+  /**
+   * Assigns Trick and gives it different abilities with the prepare, split, swap, and report.
+   * @param args Main arg for method.
+   */
   public static void main(String[] args) {
     Trick trick = new Trick();
     trick.prepare();
@@ -27,11 +31,17 @@ public class Trick {
     trick.report();
   }
 
+  /**
+   * This method will take a {@link Deck} and shuffle it.
+   */
   private void prepare() {
     deck = new Deck();
     deck.shuffle(rng);
   }
 
+  /**
+   * Takes the cards that have been shuffled and splits them by color based on random card color picked.
+   */
   private void split() {
     redPile = new LinkedList<>();
     blackPile = new LinkedList<>();
@@ -44,6 +54,10 @@ public class Trick {
     }
   }
 
+  /**
+   * Takes the two piles of cards that were sorted and based on a {@link Random} number takes a certain
+   * number of card from each pile and swaps them.
+   */
   private void swap() {
     int swapSize = rng.nextInt(1 + Math.min(blackPile.size(), redPile.size()));
     for (int i = 0; i < swapSize; i++) {
@@ -52,6 +66,9 @@ public class Trick {
     }
   }
 
+  /**
+   * Takes the amount of cards that were counted from each pile and displays them to user.
+   */
   private void report() {
     int redCount = 0;
     int blackCount = 0;
