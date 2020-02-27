@@ -10,7 +10,7 @@ import java.util.Random;
 /**
  * Encapsulates amount of cards by counting the amount of cards in a {@link Deck} and the amount of cards that have been dealt.
  */
-public class Deck {
+public class Deck implements Comparator<Card> {
 
   private List<Card> cards;
   private List<Card> dealt;
@@ -77,9 +77,14 @@ public class Deck {
     if (gather) {
       gather();
     }
-    // Comparator with a method references.
+    // Comparator lambda with a method references.
     // first they are compared based on suit (Card::getSuit) then compared based on rank (Card::getRank)
-    cards.sort(Comparator.comparing(Card::getSuit).thenComparing(Card::getRank));
+    cards.sort(this);
+  }
+
+  @Override
+  public int compare(Card card1, Card card2) {
+    return Comparator.comparing(Card::getSuit).thenComparing(Card::getRank).compare(card1, card2);
   }
 }
 
