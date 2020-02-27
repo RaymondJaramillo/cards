@@ -1,5 +1,6 @@
 package edu.cnm.deepdive.model;
 
+import java.util.Comparator;
 import java.util.Objects;
 
 /**
@@ -8,7 +9,7 @@ import java.util.Objects;
  *
  * @author Raymond Jaramillo
  */
-public class Card {
+public class Card implements Comparable<Card> {
 
 
   private final Suit suit;
@@ -62,5 +63,9 @@ public class Card {
     }
     return comparison;
   }
-
+// using Comparator lambda with a method reference that has cards compare themselves.
+  @Override
+  public int compareTo(Card other) {
+    return Comparator.comparing(Card::getSuit).thenComparing(Card::getRank).compare(this, other);
+  }
 }
