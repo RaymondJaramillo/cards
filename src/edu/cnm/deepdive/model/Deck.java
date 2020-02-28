@@ -73,12 +73,14 @@ public class Deck {
     return cards.toString();
   }
 
+  /**
+   * Takes the card and if they are gathered then the {@gather} method is invoked again and all the card are brought together.
+   * @param gather {@boolean} this boolean is a where a "gathered" deck is placed and if true then will be passed.
+   */
   public void sort(boolean gather) {
     if (gather) {
       gather();
     }
-    // Comparator lambda with a method references.
-    // first they are compared based on suit (Card::getSuit) then compared based on rank (Card::getRank)
     cards.sort(null);
   }
 
